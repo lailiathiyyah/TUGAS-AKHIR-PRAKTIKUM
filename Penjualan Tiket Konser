@@ -1,0 +1,842 @@
+#include <iostream>
+#include <stdlib.h>
+#include <windows.h>
+#include <cwchar>
+#include <conio.h>
+#include <ctime>
+using namespace std;
+
+string judul();
+string sayHi();
+void ticket();
+void merchant();
+void beli();
+
+main(){
+    judul();
+    sayHi();
+    beli();
+}
+
+ string judul(){
+ system("Color 5F");
+ CONSOLE_FONT_INFOEX cfi;
+ cfi.cbSize = sizeof(cfi);
+ cfi.nFont = 10;
+ cfi.dwFontSize.X = 12.5;                   // Width 
+ cfi.dwFontSize.Y = 25;                  // Height
+ cfi.FontFamily = FF_DONTCARE;
+ cfi.FontWeight = FW_NORMAL;
+ std::wcscpy(cfi.FaceName, L"roboto"); // Choose font
+ SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
+     cout << "\n\n\n\n\n\n\n";
+     cout << "     \t\t =======================================================================\t\t\t\t\t";
+     cout << "     \t\t|\t\t\t\t\t\t\t\t\t|\n";
+     cout << "     \t\t|\t\t\t\t\t\t\t\t\t|\n";
+     cout << "     \t\t|\t\t\t\t\t\t\t\t\t|\n";
+     cout << "     \t\t|\t\t\t\t\t\t\t\t\t|\n";
+     cout << "     \t\t|\t\t =======================================\t\t|\n";
+     cout << "     \t\t|\t\t| Program Penjualan Tiket & Merchandise |\t\t|\n";
+     cout << "     \t\t|\t\t|               Konser Musik            |\t\t|\n";
+     cout << "     \t\t|\t\t =======================================\t\t|\n";
+     cout << "     \t\t|\t\t\t\t\t\t\t\t\t|\n";
+     cout << "     \t\t|\t\t\t\t\t\t\t\t\t|\n";
+     cout << "     \t\t|\t\t\t\t\t\t\t\t\t|\n";
+     cout << "     \t\t|\t\t\t\t\t\t\t\t\t|\n";
+     cout << "     \t\t =======================================================================\t\t\t\t\t\n";
+ getch();
+ system("cls");
+ }
+
+string sayHi(){
+system("Color 5F");
+CONSOLE_FONT_INFOEX cfi;
+cfi.cbSize = sizeof(cfi);
+cfi.nFont = 10;
+cfi.dwFontSize.X = 12.5;                   // Width
+cfi.dwFontSize.Y = 25;                  // Height
+cfi.FontFamily = FF_DONTCARE;
+cfi.FontWeight = FW_NORMAL;
+std::wcscpy(cfi.FaceName, L"roboto"); // Choose font
+SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\tHello, Army!^-^" << endl;
+getch();
+system("cls");
+}
+void ticket(){
+    system("Color DF");
+    int pilihTicket, jumlahTicket, metodeBayar;
+    string catalog1, catalog2, catalog3, catalog4;
+    catalog1 = "Purple";
+    catalog2 = "Blue";
+    catalog3 = "Yellow";
+    catalog4= "Red";
+    char optioning;
+    time_t tgl = time (0);
+    char* dt = ctime(&tgl);
+    stage :
+    cout << " \t\t _______________________________________________________________________\n";
+    cout << "\t\t|\t\t\t\t\t\t\t\t\t|\n";
+    cout << "\t\t|\t\t\t\t\t\t\t\t\t|\n";
+    cout << "\t\t|\t\t\t\tSTAGE\t\t\t\t\t|\n";
+    cout << "\t\t|\t\t\t\t\t\t\t\t\t|\n";
+    cout << "\t\t|\t\t\t\t\t\t\t\t\t|\n";
+    cout << " \t\t =======================================================================\n\n\n";
+
+    cout << "\t\t\t ________________________________________________________\n";
+    cout << "\t\t\t| \t\t\t\t\t\t\t |\n";
+    cout << "\t\t\t| \t\t\t\t\t\t\t |\n";
+    cout << "\t\t\t| \t\t\t\t\t\t\t |\n";
+    cout << "\t    _________   | \t\t\t\t\t\t\t |   ________\n";
+    cout << "\t   |\t     |  | \t\t\tBLUE\t\t\t\t |  |\t     |\n";
+    cout << "\t   |\t     |  | \t\t\t\t\t\t\t |  |\t     |\n";
+    cout << "\t   |\t     |  | \t\t\t\t\t\t\t |  |\t     |\n";
+    cout << "\t   |\t     |  | \t\t\t\t\t\t\t |  |\t     |\n";
+    cout << "\t   |\tP    |  | \t\t\t\t\t\t\t |  |\tP    |\n";
+    cout << "\t   |\tU    |   ========================================================   |\tU    |\n";
+    cout << "\t   |\tR    |   \t\t\t\t\t\t\t    |\tR    |\n";
+    cout << "\t   |\tP    |   ________________________________________________________   |\tP    |\n";
+    cout << "\t   |\tL    |  | \t\t\t\t\t\t\t |  |\tL    |\n";
+    cout << "\t   |\tE    |  | \t\t\t\t\t\t\t |  |\tE    |\n";
+    cout << "\t   |\t     |  | \t\t\t\t\t\t\t |  |\t     |\n";
+    cout << "\t   |\t     |  | \t\t\t\t\t\t\t |  |\t     |\n";
+    cout << "\t   |\t     |  | \t\t\tYELLOW\t\t\t\t |  |\t     |\n";
+    cout << "\t   |\t     |  | \t\t\t\t\t\t\t |  |\t     |\n";
+    cout << "\t    =========   |\t\t\t\t\t\t\t |   ========\n";
+    cout << "\t\t\t| \t\t\t\t\t\t\t |\n";
+    cout << "\t\t\t| \t\t\t\t\t\t\t |\n";
+    cout << "\t\t\t ======================================================== \n\n";
+
+    cout << "\t\t _______________________________________________________________________  \n";
+    cout << "\t\t|\t\t\t\t\t\t\t\t\t|\n";
+    cout << "\t\t|\t\t\t\tRED\t\t\t\t\t|\n";
+    cout << "\t\t|\t\t\t\t\t\t\t\t\t|\n";
+    cout << "\t\t ======================================================================= \n\n";
+
+    cout << "\n\n\n";
+    cout << " \t\t ________________________________________________________________________\n";
+    cout << 
+    "\t\t| no |\tsection\t|\t\t\tprice\t\t\t\t| \n";
+    cout <<
+    " \t\t ========================================================================\n";
+    cout << 
+    "\t\t| 1  |\t"<< catalog1 <<"\t|\t\t\tRp.1.850.000\t\t\t| \n";
+    int purple = 1850000;
+    cout <<
+    " \t\t ========================================================================\n";
+    cout << 
+    "\t\t| 2  |\t"<< catalog2 <<"\t|\t\t\tRp.1.250.000\t\t\t| \n";
+    int blue = 1250000;
+    cout <<
+    " \t\t ========================================================================\n";
+    cout << 
+    "\t\t| 3  |\t"<< catalog3 <<"\t|\t\t\tRp.1.000.000\t\t\t| \n";
+    int yellow = 1000000;
+    cout <<
+    " \t\t ========================================================================\n";
+    cout << 
+    "\t\t| 4  |\t"<< catalog4 <<"\t|\t\t\tRp.750.000\t\t\t| \n";
+    int red = 750000;
+    cout <<
+    " \t\t ========================================================================\n";
+    cout << "\n\t\t Masukan Pilihan Section           : "; cin >> pilihTicket;
+    if((pilihTicket == 1) || (pilihTicket == 2) || (pilihTicket == 3) || (pilihTicket == 4)){
+    cout << "\t\t Masukan Banyak Tiket Yang Dipesan : "; cin >> jumlahTicket; 
+    }
+if (pilihTicket == 1)
+{
+    bayar1:
+    cout << "\n\t\t Pilih Metode Pembayaran        : \n";
+    cout << "\t\t 1. Debit\n";
+    cout << "\t\t 2. Kredit\n";
+    cout << "\t\t Metode Pembayaran Yang Dipilih : ";
+    cin >> metodeBayar;
+    if (metodeBayar == 1)
+    {
+        cout << "\n\t\t Selamat Anda mendapatkan diskon sebesar 15% untuk metode pembayaran ini ^-^\n";
+        purple -= (0.15 * purple);
+        purple *= jumlahTicket;
+        cout << "\t\t Total Yang Harus Dibayar = Rp. " << purple << endl;
+        cout << "\t\t\t\t\t______________________________\n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t6877|854938||900034||4700043|| \n";
+        cout << "\t\t\t\t\t==============================\n";
+        cout << "\t\t\t\t\t\t|Waktu Pembelian| \n";
+        cout << "\t\t\t\t\t    "<< dt << endl;
+        cout << "\t\t\t\t   Scan Barcode Diatas Untuk Memasuki Area Konser\n";
+    getch();
+    system("cls");
+    belimerchga1 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tAnda Telah Membeli : \n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahTicket << " " << catalog1 << " Dengan harga : Rp. " << purple << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah Anda Ingin Membeli Merchandise? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        merchant();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks for shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    default:
+    cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belimerchga1 ;
+    }
+        
+    }else if(metodeBayar == 2){
+        purple *= jumlahTicket;
+        cout << "\n\t\t Total yang harus dibayar = Rp. " << purple << endl;
+        cout << "\t\t\t\t\t______________________________\n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t6877|854938||736434||5690647|| \n";
+        cout << "\t\t\t\t\t==============================\n";
+        cout << "\t\t\t\t\t\t|Waktu Pembelian| \n";
+        cout << "\t\t\t\t\t    "<< dt << endl;
+        cout << "\t\t\t\t   Scan Barcode Diatas Untuk Memasuki Area Konser\n";
+    getch();
+    system("cls");
+    belimerchga2 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tAnda Telah Membeli : \n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahTicket << " " << catalog1 << " Dengan harga : Rp. " << purple << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah Anda Ingin Membeli Merchandise? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        merchant();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks for shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    break;
+    default : 
+    cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belimerchga2 ;
+    }
+    }
+    else{
+        cout << "\n\t\t Metode pembayaran yang Anda pilih tidak tersedia.\n";
+        goto bayar1;
+    }
+getch();
+system("cls");
+} else if(pilihTicket == 2){
+     bayar2:
+    cout << "\n\t\t Pilih Metode Pembayaran        : \n";
+    cout << "\t\t 1. Debit\n";
+    cout << "\t\t 2. Kredit\n";
+    cout << "\t\t Metode Pembayaran Yang Dipilih : ";
+    cin >> metodeBayar;
+    if (metodeBayar == 1)
+    {
+        cout << "\n\t\t Selamat Anda mendapatkan diskon sebesar 15% untuk metode pembayaran ini ^-^\n";
+        blue -= (0.15 * blue);
+        blue *= jumlahTicket;
+        cout << "\t\t Total Yang Harus Dibayar = Rp. " << blue << endl;
+        cout << "\t\t\t\t\t______________________________\n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t6877|700038||736434||4739857|| \n";
+        cout << "\t\t\t\t\t==============================\n";
+        cout << "\t\t\t\t\t\t|Waktu Pembelian| \n";
+        cout << "\t\t\t\t\t    "<< dt << endl;
+        cout << "\t\t\t\t   Scan Barcode Diatas Untuk Memasuki Area Konser\n";
+    getch();
+    system("cls");
+    belimerchga3 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tAnda Telah Membeli : \n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahTicket << " " << catalog2 << " Dengan Harga : Rp. " << blue << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah Anda Ingin Membeli Merchandise? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        merchant();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks For Shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    default:
+    cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belimerchga3 ;
+    }
+    }else if(metodeBayar == 2){
+        blue *= jumlahTicket;
+        cout << "\n\t\t Total Yang Harus Dibayar = Rp. " << blue << endl;
+        cout << "\t\t\t\t\t______________________________\n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t9000|854938||736434||4738647|| \n";
+        cout << "\t\t\t\t\t==============================\n";
+        cout << "\t\t\t\t\t\t|Waktu Pembelian| \n";
+        cout << "\t\t\t\t\t    "<< dt << endl;
+        cout << "\t\t\t\t   Scan Barcode Diatas Untuk Memasuki Area Konser\n";
+    getch();
+    system("cls");
+    belimerchga4 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tAnda Telah Membeli : \n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahTicket << " " << catalog2 << " Dengan harga : Rp. " << blue << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah Anda Ingin Membeli Merchandise? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        merchant();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks For Shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    default:
+    cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belimerchga4 ;
+    }
+    }
+    else{
+        cout << "\n\t\t Metode pembayaran yang Anda pilih tidak tersedia.\n";
+        goto bayar2;
+    }
+getch();
+system("cls");
+} else if(pilihTicket == 3){
+     bayar3:
+    cout << "\n\t\t Pilih Metode Pembayaran        : \n";
+    cout << "\t\t 1. Debit\n";
+    cout << "\t\t 2. Kredit\n";
+    cout << "\t\t Metode Pembayaran Yang Dipilih : ";
+    cin >> metodeBayar;
+    if (metodeBayar == 1)
+    {
+        cout << "\n\t\t Selamat Anda mendapatkan diskon sebesar 15% untuk metode pembayaran ini ^-^\n";
+        yellow -= (0.15 * yellow);
+        yellow *= jumlahTicket;
+        cout << "\t\t Total Yang Harus Dibayar = Rp. " << yellow << endl;
+        cout << "\t\t\t\t\t______________________________\n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t6877|851238||736434||4738647|| \n";
+        cout << "\t\t\t\t\t==============================\n";
+        cout << "\t\t\t\t\t\t|Waktu Pembelian| \n";
+        cout << "\t\t\t\t\t    "<< dt << endl;
+        cout << "\t\t\t\t   Scan Barcode Diatas Untuk Memasuki Area Konser\n";
+    getch();
+    system("cls");
+    belimerchga5 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tAnda Telah Membeli : \n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahTicket << " " << catalog3 << " Dengan Harga : Rp. " << yellow << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah Anda Ingin Membeli Merchandise? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        merchant();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks For Shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    default:
+    cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belimerchga5 ;
+    }
+    }else if(metodeBayar == 2){
+        yellow *= jumlahTicket;
+        cout << "\n\t\t Total Yang Harus Dibayar = Rp. " << yellow << endl;
+        cout << "\t\t\t\t\t______________________________\n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t\t8907|854938||736434||4738647|| \n";
+        cout << "\t\t\t\t\t==============================\n";
+        cout << "\t\t\t\t\t\t|Waktu Pembelian| \n";
+        cout << "\t\t\t\t\t    "<< dt << endl;
+        cout << "\t\t\t\t   Scan Barcode Diatas Untuk Memasuki Area Konser\n";
+    getch();
+    system("cls");
+    belimerchga6 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tAnda Telah Membeli\n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahTicket << " " << catalog3 << " Dengan Harga : Rp. " << yellow << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah Anda Ingin Membeli Merchandise? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        merchant();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks For Shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    default:
+    cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belimerchga6 ;
+    }
+    }
+    else{
+        cout << "\n\t\t Metode pembayaran yang Anda pilih tidak tersedia.\n";
+        goto bayar3;
+    }
+getch();
+system("cls");
+} else if(pilihTicket == 4){
+    bayar4:
+    cout << "\n\t\t Pilih Metode Pembayaran        : \n";
+    cout << "\t\t 1. Debit\n";
+    cout << "\t\t 2. Kredit\n";
+    cout << "\t\t Metode Pembayaran Yang Dipilih : ";
+    cin >> metodeBayar;
+    if (metodeBayar == 1)
+    {
+        cout << "\n\t\t Selamat Anda mendapatkan diskon sebesar 15% untuk metode pembayaran ini ^-^\n";
+        red -= (0.15 * red);
+        red *= jumlahTicket;
+        cout << "\t\t Total Yang Harus Dibayar = Rp. " << red << endl;
+        cout << "\t\t\t\t______________________________\n";
+        cout << "\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t6877|854938||736434||5008647|| \n";
+        cout << "\t\t\t\t==============================\n";
+        cout << "\t\t\t\t\t|Waktu Pembelian| \n";
+        cout << "\t\t\t\t    "<< dt << endl;
+        cout << "\t\t\t   Scan Barcode Diatas Untuk Memasuki Area Konser\n";
+    getch();
+    system("cls");
+    belimerchga7 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tKamu Telah Membeli : \n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahTicket << " " << catalog4 << " Dengan Harga : Rp. " << red << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah anda ingin membeli merchandise? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        merchant();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks For Shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    default:
+    cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belimerchga7 ;
+        break;
+    }
+    }else if(metodeBayar == 2){
+        red *= jumlahTicket;
+        cout << "\n\t\t Total Yang Harus Dibayar = Rp. " << red << endl;
+        cout << "\t\t\t\t______________________________\n";
+        cout << "\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t||| |  ||| || |||| || | | | || \n";
+        cout << "\t\t\t\t6877|854938||736434||6008647|| \n";
+        cout << "\t\t\t\t==============================\n";
+        cout << "\t\t\t\t\t|Waktu Pembelian| \n";
+        cout << "\t\t\t\t    "<< dt << endl;
+        cout << "\t\t\t   Scan Barcode Diatas Untuk Memasuki Area Konser\n";
+    getch();
+    system("cls");
+    belimerchga8 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tKamu telah membeli\n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahTicket << " " << catalog4 << " Dengan Harga : Rp. " << red << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah Anda Ingin Membeli Merchandise? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        merchant();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks For Shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    default:
+    cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belimerchga8 ;
+    }
+    }
+    else{
+        cout << "\n\t\t Metode pembayaran yang Anda pilih tidak tersedia.\n";
+        goto bayar4;
+    }
+getch();
+system("cls");
+} else {
+cout << "\n\t\t Pilihan yang anda masukkan tidak valid, mohon pilih sesuai menu yang tersedia ^-^" << endl;
+getch();
+system("cls");
+goto stage;
+}
+}
+void merchant(){
+    choose:
+    int pilihMerch, baju, lightstick, album, jumlahMerch, totalMerch, metodBayar;
+    string nama, alamat, noHp, catalog1, catalog2, catalog3;
+    char optioning;
+    catalog1 = "T-Shirt";
+    catalog2 = "Lighstick";
+    catalog3 = "Album";
+    time_t tgl = time (0);
+    char* dt = ctime(&tgl);
+
+    cout << "\n\n\n\n\n";
+    cout << "\t\t\t\t\tWelcome To Merchandise Booth ^-^\n";
+    cout << " \t\t _______________________________________________________________________________\n";
+    cout << 
+    "\t\t| No |\tMerchandise\t|\t\t\tPrice\t\t\t\t| \n";
+    cout <<
+    " \t\t ===============================================================================\n";
+    cout << 
+    "\t\t|  1 |\t" << catalog1 << "\t\t|\t\t\tRp.300.000\t\t\t| \n";
+    baju = 300000;
+    cout <<
+    " \t\t ===============================================================================\n";
+    cout << 
+    "\t\t|  2 |\t" << catalog2 << "\t|\t\t\tRp.800.000\t\t\t| \n";
+    lightstick = 800000;
+    cout <<
+    " \t\t ===============================================================================\n";
+    cout << 
+    "\t\t|  3 |\t" << catalog3 << "\t\t|\t\t\tRp.400.000\t\t\t| \n";
+    album = 400000;
+    cout <<
+    " \t\t ===============================================================================\n";
+    cout << "\t\t Harga yang tertera belum termasuk pajak\n";
+    cout << "\n\t\t Masukan Pilihan Merchandise             : "; cin >> pilihMerch;
+    if((pilihMerch == 1) || (pilihMerch == 2) || (pilihMerch == 3)){
+    cout << "\t\t Masukan Banyak Merchandise Yang Dipesan : "; cin >> jumlahMerch; 
+    system("cls");
+    cout << "Masukkan Nama Lengkap\t\t:";
+    getline(cin >> ws, nama);
+    cout << endl;
+    cout << "Masukkan Alamat Pengiriman\t:";
+    getline(cin, alamat);
+    cout << endl;
+    cout << "Masukkan No HP\t\t\t:";
+    getline(cin, noHp);
+    cout << endl;
+    if((pilihMerch == 1) || (pilihMerch == 2) || (pilihMerch == 3)){
+   if(pilihMerch == 1){
+    baju += (0.10 * baju);
+    baju *= jumlahMerch;
+    cout << "Setiap Pembelian Merchandise Dikenakan Pajak Sebesar 10%\n";
+    cout << "\nTotal Pembayaran   : Rp. " << baju << endl;
+    getch();
+    system("cls");
+    bayar1:
+    cout << "Pilih Metode Pembayaran :\n";
+   cout << "1. Debit\n";
+   cout << "2. Kredit\n";
+   cout << "Metode Pembayaran Yang Dipilih : "; cin >> metodBayar;
+   if ((metodBayar == 1) || (metodBayar == 2))
+   {
+    cout << "\t\t\t _______________________________________________\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t\tNama   :   " << nama << "\t\t\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t\tNo.Hp  :   " << noHp << "\t\t\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t\tAlamat :   " << alamat << "\t\t\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t ===============================================\n";
+    cout << "\t\t\t\t ______________________________\n";
+    cout << "\t\t\t\t ||| |  ||| || |||| || | | | || \n";
+    cout << "\t\t\t\t ||| |  ||| || |||| || | | | || \n";
+    cout << "\t\t\t\t ||| |  ||| || |||| || | | | || \n";
+    cout << "\t\t\t\t 7000|854938||900434||5008647|| \n";
+    cout << "\t\t\t\t ==============================\n";\
+    cout << "\t\t\t\t\t |Waktu Pembelian| \n";
+    cout << "\t\t\t\t     "<< dt << endl;
+    cout << "\t\t\t\t Bukti Pembelian Telah Tercetak\n";
+    cout << "\t\t\t\t Total Pembayaran  = Rp. " << baju << endl;
+    cout << "\n\t\t\t\t Kami akan antar belanjaan Anda\n";
+    cout << "\t\t\t\t Thank You For Your Purchase ! ^-^\n";
+    getch();
+    system("cls");
+    belitiketga1 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tKamu Telah Membeli :\n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahMerch << " " << catalog1 << " Dengan harga : Rp. " << baju << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah Anda Ingin Membeli Tiket Konser Juga? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        ticket();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks for shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    default:
+    cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belitiketga1 ;
+    }
+     
+   } else {
+    cout << "Metode pembayaran yang Anda pilih tidak tersedia." << endl;
+    getch();
+    system("cls");
+    goto bayar1;
+   }
+   } else if(pilihMerch == 2){
+    lightstick += (0.10 * lightstick);
+    lightstick *= jumlahMerch;
+    cout << "Setiap Pembelian Merchandise Dikenakan Pajak Sebesar 10%\n";
+    cout << "\nTotal Pembayaran   : Rp. " << lightstick << endl;
+    getch();
+    system("cls");
+    bayar2:
+    cout << "Pilih Metode Pembayaran :\n";
+    cout << "1. Debit\n";
+    cout << "2. Kredit\n";
+    cout << "Metode Pembayaran Yang Dipilih : "; cin >> metodBayar;
+    if ((metodBayar == 1) || (metodBayar == 2))
+   {
+        cout << "\t\t\t _______________________________________________\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t\tNama   :   " << nama << "\t\t\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t\tNo.Hp  :   " << noHp << "\t\t\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t\tAlamat :   " << alamat << "\t\t\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t ===============================================\n";
+    cout << "\t\t\t\t ______________________________\n";
+    cout << "\t\t\t\t ||| |  ||| || |||| || | | | || \n";
+    cout << "\t\t\t\t ||| |  ||| || |||| || | | | || \n";
+    cout << "\t\t\t\t ||| |  ||| || |||| || | | | || \n";
+    cout << "\t\t\t\t 9007|854938||854434||5008647|| \n";
+    cout << "\t\t\t\t ==============================\n";
+    cout << "\t\t\t\t\t |Waktu Pembelian| \n";
+    cout << "\t\t\t\t     "<< dt << endl;
+    cout << "\t\t\t\t Bukti Pembelian Telah Tercetak\n";
+    cout << "\t\t\t\t Total Pembayaran  = Rp. " << lightstick << endl;
+    cout << "\t\t\t\t Kami akan antar belanjaan Anda\n";
+    cout << "\t\t\t\t Thank You For Your Purchase ! ^-^\n";
+     getch();
+    system("cls");
+    belitiketga2 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tAnda Telah Membeli :\n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahMerch << " " << catalog2 << " Dengan Harga : Rp. " << lightstick << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah Anda Ingin Membeli Tiket Konser Juga? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        ticket();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks for shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    default:
+     cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belitiketga2;
+    }
+
+   }else {
+    cout << "Metode pembayaran yang Anda pilih tidak tersedia." << endl;
+    getch();
+    system("cls");
+    goto bayar2;
+   }
+   } else if(pilihMerch == 3){
+    album += (0.10 * album);
+    album *= jumlahMerch;
+    cout << "Setiap Pembelian Merchandise Dikenakan Pajak Sebesar 10%\n";
+    cout << "\nTotal Pembayaran   : Rp. " << album << endl;
+    getch();
+    system("cls");
+    bayar3:
+    cout << "Pilih Metode Pembayaran :\n";
+    cout << "1. Debit\n";
+    cout << "2. Kredit\n";
+    cout << "Metode Pembayaran Yang Dipilih : "; cin >> metodBayar;
+    if ((metodBayar == 1) || (metodBayar == 2))
+   {
+    cout << "\t\t\t _______________________________________________\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t\tNama   :   " << nama << "\t\t\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t\tNo.Hp  :   " << noHp << "\t\t\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t\tAlamat :   " << alamat << "\t\t\n";
+    cout << "\t\t\t|\t\t\t\t\t\t|\n";
+    cout << "\t\t\t ===============================================\n";
+    cout << "\t\t\t\t ______________________________\n";
+    cout << "\t\t\t\t ||| |  ||| || |||| || | | | || \n";
+    cout << "\t\t\t\t ||| |  ||| || |||| || | | | || \n";
+    cout << "\t\t\t\t ||| |  ||| || |||| || | | | || \n";
+    cout << "\t\t\t\t 6800|800938||736434||5008647|| \n";
+    cout << "\t\t\t\t ==============================\n";
+    cout << "\t\t\t\t\t |Waktu Pembelian| \n";
+    cout << "\t\t\t\t     "<< dt << endl;
+    cout << "\t\t\t\t Bukti Pembelian Telah Tercetak\n";
+    cout << "\t\t\t\t Total Pembayaran  = Rp. " << album << endl;
+    cout << "\t\t\t\t Kami akan antar belanjaan Anda\n";
+    cout << "\t\t\t\t Thank You For Your Purchase ! ^-^\n";
+    getch();
+    system("cls");
+    belitiketga3 :
+    cout << "\n\n\n\n";
+    cout << "\t\t\t\t\tKamu Telah Membeli :\n";
+    cout << "\t\t\t====================================================\n";
+    cout << "\t\t\t\t" << jumlahMerch << " " << catalog3 << " Dengan Harga : Rp. " << album << endl;
+    cout << "\t\t\t====================================================\n";
+    cout << "\n\n";
+    cout << "\t\t\tApakah Anda Ingin Membeli Tiket Nonton Juga? [y/n] : ";cin >> optioning;
+    switch (optioning)
+    {
+    case 'y':
+        system("cls");
+        ticket();
+    break;
+    case 'n':
+    cout << "\n\n";
+    cout << "\t\t\t\t =======================================\n";
+    cout << "\t\t\t\t|\tThanks for shopping ^___^\t|\n";
+    cout << "\t\t\t\t =======================================";
+    default:
+    cout << "\t\t\tmasukan y/n";
+    getch();
+    system ("cls");
+    goto belitiketga3;
+    }
+   }else {
+    cout << "Metode pembayaran yang Anda pilih tidak tersedia." << endl;
+    getch();
+    system("cls");
+    goto bayar3;
+   }
+   } else{
+    cout << "Metode pembayaran yang Anda pilih tidak tersedia." << endl;
+    getch();
+    system("cls");
+   }
+getch();
+}
+    } else{
+        cout << "\n\t\t Pilihan yang anda masukan tidak valid\n";
+        cout << "\t\t Mohon pilih sesuai menu yang tersedia ^-^" << endl;
+        getch();
+        system("cls");
+        goto choose;
+    }
+}
+void beli(){
+    system("Color 97");
+    int option;
+    label: 
+    cout << "\n\n\n";
+    cout << "\t\t\t =========================================================\n";
+    cout << "\t\t\t|\t     Selamat Datang di Booth Boraland ^-^ \t  |" << endl;
+    cout << "\t\t\t =========================================================\n";
+    cout << "\n";
+    cout << "\t\t\t\t =========================================\n";
+    cout << "\t\t\t\t|\t    Pilih menu dibawah ini\t  | " << endl;
+    cout << "\t\t\t\t =========================================\n";
+    cout << "\t\t\t\t | | | | | | | | | | | | | | | | | | | | |\n";
+    cout << "\t\t\t\t v v v v v v v v v v v v v v v v v v v v v\n";
+    cout << "\t\t\t\t _________________________________________\n";
+    cout << "\t\t\t\t|\t1. Pesan tiket konser\t\t  |\n";
+    cout << "\t\t\t\t|_________________________________________|\n";
+    cout << "\t\t\t\t|\t2. Hanya membeli merchandise\t  |\n";
+    cout << "\t\t\t\t|_________________________________________|\n\n";
+    cout << "\t\t\t\t Masukan pilihanmu : ";
+    cin >> option ;
+    if (option == 1)
+    {
+    system("cls");
+     ticket();
+    } else if(option == 2){
+    system("cls");
+        merchant();
+    } else{
+    cout << "\t\t\t\t Pilihan yang anda masukkan tidak valid\n";
+    cout << "\t\t\t\t mohon pilih sesuai menu yang tersedia ^-^\n";
+    getch();
+    system("cls");
+    goto label;
+    }
+system("cls");
+}
