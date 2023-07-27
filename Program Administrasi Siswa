@@ -1,0 +1,375 @@
+#include <iostream> // cin, cout
+#include <fstream> // untuk file, ifstream ofstream
+#include <conio.h> // getch
+#include <windows.h> // background dan text colors
+
+/*materi :
+1. Struct
+2. Fungsi Prosedur
+3. Array
+4. Sorting
+5. File */
+
+void login();
+void pembuka();
+void menu();
+void masukanData();
+void tampilkanData();
+void simpanData();
+void sortingID();
+void sortingNama();
+void sortingKelas();
+void hapusData();
+void penutup();
+void cape();
+
+using namespace std;
+
+int maximumData = 100;
+
+struct Data{
+    string nama, kelas;
+    int ID;
+};
+int opsi;
+string adi[5] = {"Ridwan Nuloh","Olifian Lepin", "Laili Athiyyah", "Ananda Dias Saharani", "Riri Handini"} ;
+string yanto[5] = {"065122150","065122127","065122146","065122147","065122121"};
+
+void login (){
+    yaelah:
+    pembuka();
+    cout << "\n";
+    string username, password;
+    
+        cout << "\t\t\t\t\t\t\tSilahkan Login" << endl;
+        cout << "\t\t\t\t\t\t==========================\n";
+        cout << "\t\t\t\t\t\t      Username : ";getline (cin, username);
+        cout << "\t\t\t\t\t\t      Password : ";getline (cin, password);
+         
+        string line;
+        if (username== adi[0] && password == yanto[0]||
+         username== adi[1] && password == yanto[1]||
+         username== adi[2] && password == yanto[2]||
+         username== adi[3] && password == yanto[3]||
+         username== adi[4] && password == yanto[4] ){
+            cout << "\t\t\t\t\t\t        Login Success!" << endl;
+            getch();
+        }
+        else {
+            cout << "\t\t\t\t\t\t    Terdapat Kesalahan :(" << endl;
+            getch();
+            system ("cls");
+            goto yaelah;
+        }
+        if (username!= adi[0] && password != yanto[0]||
+             username!= adi[1] && password != yanto[1]||
+             username!= adi[2] && password != yanto[2]||
+             username!= adi[3] && password != yanto[3]||
+             username!= adi[4] && password != yanto[4]){
+                 cout << "\t\t\t\t\t\t" << endl;
+             }
+}
+
+void masukanData(Data daftarData[],int &jumlahData){
+    if (jumlahData == maximumData){
+        cout << "Daftar Data Siswa sudah tidak dapat diisi" << endl;
+    }
+    Data dataBaru;
+    cout  << "Masukan Data Identitas Siswa : " << endl;
+    inputdata :
+    cout << "Masukan Nomor ID Siswa            : ";
+    cin >> dataBaru.ID;
+    if (dataBaru.ID == 0 || dataBaru.ID < 0 || cin.fail() ){
+        cout << "Input tidak valid. Hanya angka yang diperbolehkan." << endl;
+        cin.clear();               // Mengatur status cin ke normal
+        cin.ignore(100, '\n');     // Mengabaikan karakter yang tersisa di input
+        goto inputdata;
+    }
+    cout << "Masukan Nama Lengkap Siswa        : ";
+    getline (cin >> ws, dataBaru.nama);
+    cout << "Masukan Kelas                     : ";
+    getline (cin, dataBaru.kelas);
+    cout << "Data Siswa Berhasil Ditambahkan !" << endl;
+    getch();
+    system ("cls");
+    daftarData[jumlahData]=dataBaru;
+    jumlahData++;
+}
+
+void tampilkanData(Data daftarData[], int &jumlahData){
+    if (jumlahData == 0){
+        cout << "Tidak Ada Data Yang Tersedia" << endl;
+    }
+    
+    else{
+        cout << "Data Yang Tersedia : " << endl;
+        cout << "\n";
+        for (int i=0; i < jumlahData ;  i++){
+            cout << "Data ke-"  << i+1 << endl;
+            cout << "================================="<< endl;
+            cout << "ID     : " << daftarData[i].ID << endl;
+            cout << "Nam    : " << daftarData[i].nama <<  endl;
+            cout << "Kelas  : " << daftarData[i].kelas << endl;
+            cout << "================================="<< endl;
+        }
+        cout << "+---+----------+--------------------------+------------+" << endl;
+    }
+}
+
+void simpanData(Data daftarData[], int &jumlahData){
+
+    ofstream file;
+    file.open ("Data Siswa.txt");
+
+    if (jumlahData == 0){
+        file << "Tidak Ada Data Yang Tersedia\n" << endl;
+    }
+
+    else{ 
+        file << "Data Yang Tersedia : " << endl;
+ 
+        for (int i=0; i < jumlahData ;  i++){
+            file << "Data ke-"  << i+1 << endl;
+            file << "================================="<< endl;
+            file << "ID     : " << daftarData[i].ID << endl;
+            file << "Nam    : " << daftarData[i].nama << endl;
+            file << "Kelas  : " << daftarData[i].kelas << endl;
+            file << "================================="<< endl;
+        }
+        file << "+---+----------+--------------------------+------------+" << endl;
+        }
+
+    file.close();
+
+    string temp;
+    ifstream file2;
+    file2.open("Data Siswa.txt");
+    while(file2){
+        getline(file2,temp);
+    }
+    cout << "File Telah Tersimpan, Silahkan cek file manager anda :)" << endl;
+    getch();
+    system("cls");
+}
+
+void sortingID(Data daftarData[], int &jumlahData){ 
+    // Menggunakan Sorting Selection Sort
+
+    int minIndex;
+    Data temp1,temp2;
+    
+    for (int i=0; i<jumlahData-1;i++){
+        // Cari elemen terkecil yang belum diurutkan
+        minIndex = i;
+        temp1 = daftarData[i];
+        for (int j = i+1; j<jumlahData; j++){
+            if (daftarData[j].ID < daftarData[minIndex].ID){
+                minIndex =j;
+                temp1 = daftarData[j];
+            }
+        }
+
+        // Tukar elemen terkecil dengan elemen pertama pada array yang telah diurut
+        temp2 = daftarData[i] ;
+        daftarData[i]= daftarData[minIndex];
+        daftarData[minIndex]= temp2;
+    }
+    cout << "Data Telah Terurut Berdasarkan ID!" << endl;
+    cout << "Silahkan pilih menu no.2 untuk melihat daftar data" << endl;
+}
+
+void sortingNama(Data daftarData[], int &jumlahData){
+    // Menggunakan Bubble Short
+
+    for (int a=0; a<jumlahData-1;a++){
+        for (int b=0; b<jumlahData-1;b++){
+            if (daftarData[b].nama > daftarData[b+1].nama){
+                Data temp = daftarData[b];
+                // penukaran posisi
+                daftarData[b] = daftarData[b+1];
+                daftarData[b+1] = temp;
+            }
+        }
+    }
+    cout << "Data Telah Terurut Berdasarkan Nama!" << endl;
+    cout << "Silahkan pilih menu no.2 untuk melihat daftar data" << endl;
+}
+
+void sortingKelas(Data daftarData[], int &jumlahData){
+    // Menggunakan Bubble Short
+
+    for (int a=0; a<jumlahData-1;a++){
+        for (int b=0; b<jumlahData-1;b++){
+            if (daftarData[b].kelas > daftarData[b+1].kelas){
+                Data temp = daftarData[b];
+                // penukaran posisi
+                daftarData[b] = daftarData[b+1];
+                daftarData[b+1] = temp;
+            }
+        }
+    }
+    cout << "Data Telah Terurut Berdasarkan Kelas!" << endl;
+    cout << "Silahkan pilih menu no.2 untuk melihat daftar data" << endl;
+}
+
+void hapusData(Data daftarData[], int &jumlahData){
+    int nomorData;
+    
+    tampilkanData(daftarData, jumlahData);
+
+    if (jumlahData==0){
+        cout << "Data Tidak Tersedia";
+        getch();
+        menu();
+    }
+
+    cout << "Masukan Nomor Data yang ingin dihapus : ";
+    cin >> nomorData;
+
+    if (nomorData < 1 || nomorData > jumlahData){
+        cout << "input tidak valid" << endl;
+    }
+
+    else {
+        for (int i = nomorData-1 ; i <jumlahData-1; i++){
+            daftarData[i] = daftarData[i+1];
+        } 
+        jumlahData--;
+        cout << "Data telah terhapus, pilih opsi 2 untuk melihat daftar" << endl;
+    }
+}
+void pembuka(){
+      cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n";
+      system("color A");
+      //deklarasi string x
+      char y[]=" \t\t\t\t\t\t SELAMAT DATANG DI HIMALAYA ";
+      getch();
+      //deklarasi variabel bertipe integer
+      int a,b,i,n;
+      //menghitung panjang string y 
+      n=strlen(y);
+     
+      //perulangan sebanyak panjang string
+      for(i=0; i<n; i++){
+                  /*perulangan untuk menimbulkan jeda waktu
+                  antar penampilan karakter*/
+                  for(a=0; a<99999;a++){
+                        for(b=0; b<1500; b++){
+                        }
+                  }
+                  //mencetak string y per karakter
+                  printf("%c",y[i]);
+      }
+}
+
+void menu(){
+    Data daftarData[maximumData];
+    int jumlahData = 0;
+    int opsi;
+
+    system ("color A");
+
+    system("cls");
+
+    do {
+        cout << "+-----------------------------------------------+ "<< endl;
+        cout << "|\t\tMasukan Data Siswa \t\t| " << endl;
+        cout << "+-----------------------------------------------+" << endl;
+        cout << "|1. Masukkan Data \t\t\t\t|" << endl;
+        cout << "|2. Tampilkan Data \t\t\t\t|" << endl;
+        cout << "|3. Simpan data pada folder\t\t\t|" << endl;
+        cout << "|4. Tampilkan data berdasarkan urutan ID\t|\n";
+        cout << "|5. Urutkan berdasarkan nama \t\t\t|" << endl;
+        cout << "|6. Urutkan berdasarkan kelas\t\t\t|" << endl;
+        cout << "|7. Hapus data siswa\t\t\t\t| " << endl;
+        cout << "|8. Keluar\t\t\t\t\t|" << endl;
+        cout << "+-----------------------------------------------+" << endl;
+        cout << "Pilih opsi   : ";
+        cin >> opsi;
+            if (cin.fail()) {
+        cout << "Input tidak valid. Hanya angka yang diperbolehkan." << endl;
+        cin.clear();               // Mengatur status cin ke normal
+        cin.ignore(100, '\n');     // Mengabaikan karakter yang tersisa di input
+            }
+        switch (opsi){
+            case 1 :
+            masukanData(daftarData, jumlahData);
+            getch();
+            system("cls");
+            break;
+            case 2 :
+            tampilkanData(daftarData, jumlahData);
+            getch();
+            system("cls");
+            break;
+            case 3 :
+            simpanData(daftarData, jumlahData);
+            getch();
+            break;
+            case 4 :
+            sortingID(daftarData, jumlahData);
+            getch();
+            system("cls");
+            break;
+            case 5 :
+            sortingNama(daftarData, jumlahData);
+            getch();
+            system("cls");
+            break;
+            case 6 :
+            sortingKelas(daftarData, jumlahData);
+            getch();
+            system("cls");
+            break;
+            case 7 :
+            hapusData(daftarData, jumlahData);
+            getch();
+            system("cls");
+            break;
+            case 8 :
+            system("cls");
+            penutup();
+            getch();
+            break;
+            default:
+            cout << "Pilihan Tidak Tersedia" << endl;
+            getch();
+            system ("cls");
+            break;
+        }
+    }
+    while (opsi != 8 );
+}
+void penutup(){
+      cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n";
+      system("color A");
+      //deklarasi string x
+      char y[]=" \t\t\t\t\t\t SELAMAT TINGGAL HIMALAYA\n ";
+      getch();
+      //deklarasi variabel bertipe integer
+      int d,w,j,k;
+      //menghitung panjang string y 
+      k=strlen(y);
+     
+      //perulangan sebanyak panjang string
+      for(j=0; j<k; j++){
+                  /*perulangan untuk menimbulkan jeda waktu
+                  antar penampilan karakter*/
+                  for(d=0; d<99999;d++){
+                        for(w=0; w<1500; w++){
+                        }
+                  }
+                  //mencetak string y per karakter
+                  printf("%c",y[j]);
+      }
+cout << "\nDOne Bang";
+cape();
+}
+void cape(){
+    cout << "\nudaah ah cape";
+}
+
+int main (){
+    login();
+    menu();
+}
